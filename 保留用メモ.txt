@@ -1,0 +1,6 @@
+<div class="side-header">
+  <div class="side-header-info">
+  <div class="user-name-button"><a href="#"><span><%= current_user.id %></span></a></div>
+  <div class="new-chat-button"><a href="#"><span>チャットを作成する</span><%= chat.user.name %></a></div>
+  </div>
+</div>
