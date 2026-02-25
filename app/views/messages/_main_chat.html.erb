@@ -1,3 +1,54 @@
-<div class="main-header"></div>
-<div class="chat-view"></div>
-<div class="formInput"></div>
+<div class="main-header">
+  <div class="room-name">techroom1</div>
+  <div class="quit-chat-button">
+    <a href="#">チャットを終了する</a>
+  </div>
+</div>
+
+
+<div class="chat-view">
+  <div class="name-time-and-message">
+    <div class="name-and-time">
+      <div class="user-name">Skyler</div>
+      <div class="time">2026/02/25(Wed) 19:02:00</div>
+    </div>
+      <div class="message">Are you in danger.</div>
+  </div>
+  <div class="name-time-and-message">
+    <div class="name-and-time">
+      <div class="user-name">Walt</div>
+      <div class="time">2026/02/25(Wed) 20:02:00</div>
+    </div>
+      <div class="message">I'm NOT in danger, Skyler. <br>I AM the danger!</div>
+  </div>
+</div>
+
+
+<div class="formInput">
+  <div class="form">
+    <input class="type-message" placeholder="type a message">
+    <label class="form-image">
+      <span class="image-file">画像</span>
+      <input type="file" class="hidden">
+    </label>
+  </div>
+  <input class="send-button" type="submit" value="送信">
+</div>
+
+
+
+<%#
+
+inputタグにtypeを指定しない場合、デフォルトでtype="text"が割り当てられます。
+
+
+
+＊＊labelラベル要素＊＊
+label要素とは、フォームの中でフォームの項目名（ここでいう「画像」）と
+フォームの入力要素（画像選択フォーム、プルダウン、チェックボックスなど）を関連付けるための要素です。
+
+label要素の役割の1つは、label要素（ここでいう<label class="form-image">）がクリックされたときに、
+子要素（ここでいう<input type="file" class="hidden">）もクリックされたことにしてくれることです。
+この仕組みを使うと、見えないはずのファイル選択ボタン（<input type="file" class="hidden">）をクリックしたかのように動作させることができます。
+
+%>

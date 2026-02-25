@@ -1,3 +1,18 @@
+:root {
+  --side-header-bg: #253141;
+  --side-bar-bg: #2F3E51;
+  --text-light: #FAFAFA;
+  --link-active: deepskyblue;
+  --link-border: lightblue;
+  --main-bg: #ffffff;
+  --chat-view-bg: #FAFAFA;
+  --form-bg: #DDDDDD;
+  --room-text: white;
+  --user-name-bg: #434A54;
+  --time-bg: #999;
+  --send-button-bg: #38AEF0;
+}
+
 /*【全体】（index.html.erbで管理）*/
 .wrapper {
   height: 100vh;
@@ -12,29 +27,29 @@
 .side-header {
   height: 100px;
   padding: 0 20px;
-  background-color: #253141;
+  background-color: var(--side-header-bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/*１．子サイドヘッダー（index.html.erb >> _side_bar.html.erbで管理）*/
+/*１．子サイドヘッダー／ユーザー名ボタン（index.html.erb >> _side_bar.html.erbで管理）*/
 .user-name-button {
-  color: #FAFAFA;
+  color: var(--text-light);
   font-size: 16px;
 }
 
 .user-name-button a{
-  color: #FAFAFA;
+  color: var(--text-light);
   text-decoration: none;
 }
 
-/*１．子サイドヘッダー（index.html.erb >> _side_bar.html.erbで管理）*/
+/*１．子サイドヘッダー／新規チャットボタン（index.html.erb >> _side_bar.html.erbで管理）*/
 .new-chat-button {
   padding: 14px;
   font-size: 10px;
-  color: deepskyblue;
-  border: 1px solid lightblue;
+  color: var(--link-active);
+  border: 1px solid var(--link-border);
 }
 
 .new-chat-button a {
@@ -48,8 +63,28 @@
   /* heightやpaddingなどをここで設定します。 */
   height: 100px;
   padding: 0 40px;
-  background-color: #ffffff;
+  background-color: var(--main-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.room-name {
+  font-size: 24px;
+  color: #333;
+}
+
+.quit-chat-button {
+  padding: 20px;
+  color: darkred;
+  border: 1px solid darkred;
+}
+
+.quit-chat-button a {
+  color: darkred;
+  text-decoration: none;
+}
+
 
 
 /*▼▼▼【サイドバー】▼▼▼*/
@@ -57,14 +92,14 @@
 /*サイドバー地盤レイアウト（index.html.erbで管理）*/
 .side-bar {
   width: 300px;
-  background-color: #2F3E51;
+  background-color: var(--side-bar-bg);
 }
 
 /*２．チャットルーム一覧（index.html.erb >> _side_bar.html.erbで管理）*/
 .rooms {
   height: calc(100vh - 100px);
   padding: 0 20px;
-  background-color: #2F3E51;
+  background-color: var(--side-bar-bg);
   overflow: scroll;
 }
 
@@ -73,7 +108,7 @@
 }
 
 .room a {
-  color: white;
+  color: var(--room-text);
   text-decoration: none;
 }
 
@@ -83,22 +118,88 @@
 /*メインチャット地盤レイアウト（index.html.erbで管理）*/
 .main-chat {
   width: calc(100vw - 300px);
-  background-color: #ffffff;
+  background-color: var(--main-bg);
 }
 
 /*４．チャット内容表示エリア（index.html.erb >> _main_chat.html.erbで管理）*/
 .chat-view {
   height: calc(100vh - 100px - 90px);
   padding: 46px 40px 0;
-  background-color: #FAFAFA;
+  background-color: var(--chat-view-bg);
+  overflow: scroll;
+}
+
+.name-time-and-message {
+  margin-bottom: 40px;
+}
+
+.name-and-time {
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+
+.user-name {
+  font-size: 16px;
+  color: var(--user-name-bg);
+  margin-right: 10px;
+}
+
+
+.time {
+  font-size: 12px;
+  color: var(--time-bg);
+}
+
+.message {
+  font-size: 14px;
+  color: var(--user-name-bg);
 }
 
 /*５．入力フォーム（index.html.erb >> _main_chat.html.erbで管理）*/
 .formInput {
   height: 90px;
   padding: 20px 40px;
-  background-color: #DDDDDD;
+  background-color: var(--form-bg);
+  display: flex;
 }
+
+.form {
+  background-color: white;
+  width: 100%;
+  display: flex;
+}
+
+.type-message {
+  width: 100%;
+  padding: 0 0 0 10px;
+  background-color: white;
+  border: none;
+}
+
+.send-button {
+  margin-left: 15px;
+  padding: 0 20px;
+  color: white;
+  background-color: var(--send-button-bg);
+  text-align: center;
+  border: none;
+}
+
+.form-image {
+  font-size: 12px;
+  background-color: lightblue;
+  color: white;
+  padding: 12px;
+  width: 60px;
+  text-align: center;
+  margin: 5px 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+
 
 
 /*
