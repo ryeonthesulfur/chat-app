@@ -1,0 +1,94 @@
+【実装の流れ】
+
+・GitHubでの管理を行う
+・フロント実装に必要なルーティング、コントローラー、ビューを作成する
+・リセットCSSが適用されるように設定する
+・paddingなどで要素のサイズが変わらないように設定する
+・フロント実装で使用するファイルを作成する
+
+
+
+
+●ルーティング設定
+「root to: "messages#index"」
+ルートパスへのアクセスがあったら、messages_controllerのindexアクションが呼び出されるようにする。
+
+
+
+●コントローラー、ビューの作成
+「rails g controller messages index」　
+
+・messagesコントローラーにindexアクションが作られる
+・viewsのmessagesフォルダにindex.html.erbファイルが作られる
+
+
+●リセットCSSを設定　≪app/views/layouts/application.html.erb≫
+ChatAppの実装では、メジャーなリセットCSSのひとつである「normalize.css」を使用↓↓
+
+https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css
+
+
+
+●要素サイズの設定　≪app/assets/stylesheets/application.css≫
+「box-sizingプロパティ」：要素のボックスサイズにpaddingとborderを含めるようになります。
+
+例）ある要素にwidth: 300pxを指定し、あわせてpadding: 0 20pxとborder: 2px solid #888を指定すると、横幅は300 + 20×2 + 2×2で合計344pxになる。
+これでは、横幅300pxのつもりでレイアウトを作成したとき、表示が崩れてしまうでしょう。
+
+このような場合、要素にbox-sizing: border-boxを適用し、
+paddingやborderを指定してもボックスサイズに含まれるようにして、横幅を300pxに維持させます。
+
+
+
+
+●サイドバーとチャット画面のビューファイルを作成
+
+・HTMLファイルを作成
+まず、views/messagesフォルダーに以下の名前で2つのファイルを作成。
+
+_main_chat.html.erb
+_side_bar.html.erb
+
+
+・CSSファイルを作成
+messages.cssという名前でファイルを作成。
+
+
+
+
+●部分テンプレートを用いて、ファイルを分割する　≪app/views/messages/index.html.erb≫
+
+<div class="wrapper">
+  <%= render "side_bar" %>
+  <%= render "main_chat" %>
+</div>
+
+この「index.html.erb」ファイルに当たっては、部分テンプレートの読み込みなので、
+ファイル名先頭の「_」や拡張子は必要ないことに注意。
+
+
+
+
+●ビューの実装、サイドバーの実装、チャット画面の実装　※ほとんど内容は作業のみで分量が多いので割愛
+
+１．ビューの実装
+　　任意のHTMLのクラス名を決めて一通りを全体のレイアウトを整える。
+
+２．サイドバーの実装
+　　ユーザー名とチャット作成のリンク表示
+　　チャットルーム一覧のリンク表示
+
+３．チャット画面の実装
+　　チャットルーム概要の表示
+　　メッセージ一覧の表示
+　　投稿フォームの表示
+　　画像選択フォームの実装
+
+
+●GitHubで管理
+
+まずはローカルで作業したブランチをリモートリポジトリにプッシュします。
+そしてその内容をもとにプルリクエストを作成し、そのプルリクエストでmaster(main)にマージします。
+
+リモートのmaster(main)が最新の状態になった後は、
+リモートのmaster(main)の内容をローカルのmaster(main)に反映させます。
