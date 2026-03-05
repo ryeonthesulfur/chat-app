@@ -545,3 +545,9 @@ Railsではセキュリティ対策として、保存する前にストロング
 
 
 　・ルートパスの指定を変更しよう ※コミット名は「画面遷移の実装」
+
+「config/routes.rb」ファイル内にて、
+「root to: "messages#index"」を「root to: "rooms#index"」に変更する。
+
+また、「app/controllers/rooms_controller.rb」ファイル内にて、
+index アクションを追記しておく。
