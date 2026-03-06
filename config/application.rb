@@ -13,6 +13,11 @@ module ChatApp
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
 
+    # バリデーションエラー時のfield_with_errorsによるレイアウト崩れを防ぐ
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      html_tag.html_safe
+    end
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
