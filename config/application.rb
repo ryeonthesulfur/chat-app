@@ -12,6 +12,7 @@ module ChatApp
     config.load_defaults 7.1
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
+    config.active_storage.variant_processor = :mini_magick
 
     # バリデーションエラー時のfield_with_errorsによるレイアウト崩れを防ぐ
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
