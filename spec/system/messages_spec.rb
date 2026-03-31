@@ -111,3 +111,34 @@ end
 
 
 
+=begin
+わからないところ
+
+なんで「(room_messages_path(@room_user.room))」って書くのか
+
+create_list
+find_link
+attach_file
+make_visible: true
+
+
+＊「Rails.root.join」とは＊＊
+
+
+room_userによるuserとroomの紐付け
+
+before do
+  # 中間テーブルを作成して、associationによりusersテーブルとroomsテーブルのレコードも作成する
+  @room_user = FactoryBot.create(:room_user)
+end
+
+  このような書き方ができるのは、room_users.rbに定義したFactoryBotのassociationメソッドによるものです。
+  associationを利用すると、associationで定義したインスタンスも一緒に生成されます
+
+
+  などの仕組みについて
+
+  
+
+
+=end
